@@ -1,4 +1,3 @@
-import { ISingerData } from '/typings/index';
 import dayjs from 'dayjs';
 
 export default {
@@ -10,13 +9,6 @@ export default {
   formatDate(date: number | Date | string, type: string = 'YYYY-MM-DD'): string {
     if (!date) return '';
     return dayjs(date).format(type);
-  },
-  /**
-   * 格式化歌手名字
-   * @param {Array} singerList
-   */
-  formatSingerName(singerList: ISingerData[]): string {
-    return singerList.map(item => item.name).join(' / ');
   },
   /**
    * 格式化数量

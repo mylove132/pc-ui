@@ -3,7 +3,6 @@
     <Header v-once />
     <router-view />
     <Footer v-once />
-    <Player />
   </div>
 </template>
 
@@ -11,14 +10,12 @@
 import { defineComponent } from 'vue';
 import Header from 'components/Header/index.vue';
 import Footer from 'components/Footer/index.vue';
-import Player from 'components/Player/index.vue';
 
 export default defineComponent({
   name: 'HomeLayout',
   components: {
     Header,
-    Footer,
-    Player
+    Footer
   }
 });
 </script>
