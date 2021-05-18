@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
+import { viteMockServe } from 'vite-plugin-mock';
 
 const pathResolve = (dir: string) => resolve(__dirname, dir);
 
@@ -10,7 +11,12 @@ export default defineConfig({
     port: 8888,
     open: true
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    viteMockServe({
+      mockPath: "mock"
+    })
+  ],
   resolve: {
     alias: {
       '@': pathResolve('./src'),

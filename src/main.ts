@@ -3,7 +3,7 @@ import App from './App.vue';
 import router from './router/index';
 import store from './store/index';
 import filters from './utils/filters';
-import "@/assets/css/theme/index.css";
+import "./assets/css/theme/element-variables.scss";
 import { installElementPlus } from '@/plugins/'; // 按需引入element标签
 /**
  * 捕获全局promise-reject

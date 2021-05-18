@@ -77,7 +77,12 @@ import {
     ElTooltip,
     ElTransfer,
     ElTree,
-    ElUpload
+    ElUpload,
+    ElInfiniteScroll,
+    ElLoading,
+    ElMessage,
+    ElMessageBox,
+    ElNotification
   } from 'element-plus';  
 
   const components = [
@@ -161,10 +166,20 @@ import {
     ElUpload,
   ]
   
+  const plugins = [
+    ElInfiniteScroll,
+    ElLoading,
+    ElMessage,
+    ElMessageBox,
+    ElNotification,
+  ]
 
   
 export function installElementPlus(app: App<Element>) {
     components.forEach ( component => {
         app.component(component.name, component);
+    });
+    plugins.forEach( plugin => {
+      app.use(plugin)
     });
 }

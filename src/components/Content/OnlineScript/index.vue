@@ -5,9 +5,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import FileDirTree from "@/components/Content/OnlineScript/FileDirTree.vue";
 import OnlineShowCode from "@/components/Content/OnlineScript/OnlineShowCode.vue";
+import jmeterScriptService from '@/services/modules/jmeter-script.service';
 export default defineComponent({
     name: "OnlineScript",
     components: {
@@ -15,6 +16,10 @@ export default defineComponent({
         OnlineShowCode
     },
     setup() {
+        onMounted(async () => {
+            const jmeterScript = await jmeterScriptService.queryJmeterScriptByIdService(1);
+            console.log(JSON.stringify(jmeterScript));
+        })
         
     },
 })

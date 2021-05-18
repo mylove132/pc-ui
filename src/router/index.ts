@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomeLayout from '@/layouts/HomeLayout.vue';
 import OnlineScript from "@/components/Content/OnlineScript/index.vue";
+import Login from "@/page/Login.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
     component: HomeLayout,
-    redirect: "/onlineScript",
     children: [
       {
         path: "/onlineScript",
@@ -14,6 +14,11 @@ const routes: Array<RouteRecordRaw> = [
         component: OnlineScript
       }
     ]
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login
   }
   
 ];

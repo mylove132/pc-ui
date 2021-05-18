@@ -4,10 +4,9 @@ import { ElLoading } from 'element-plus';
 import { nextTick } from "vue";
 
 axios.defaults.timeout = 60000 ; // 设置全局请求超时时间
-axios.defaults.baseURL = process.env.VUE_APP_BASEURL // 设置全局请求基地址
+axios.defaults.baseURL = import.meta.env.VITE_APP_BASEURL // 设置全局请求基地址
 //定于loading服务
 let loadingService: any;
-
 // 定义接口
 interface PendingType {
     url: string | undefined;
