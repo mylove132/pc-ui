@@ -1,1 +1,0 @@
-export { installElementPlus } from '@/plugins/element'

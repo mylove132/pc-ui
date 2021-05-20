@@ -41,14 +41,31 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "vue";
-import { Store } from "vuex";
-import store from "@/store/index";
+import { ILoginVO } from "@/domain/login.domain";
+import loginService from "@/services/modules/login.service";
+import { userModule } from "@/store/modules/user.store";
+import router from "@/router";
+import { IUserInfo } from "@/typings/data";
+import { Response } from "@/services/types/index";
+
 export default defineComponent({
   name: "Login",
   setup: () => {
-    const login = () => {
-      const $store: Store<any> = store;
-      $store.dispatch("GET_ROUTERS_DATA");
+    const login = async () => {
+      const loginVO: ILoginVO = {
+        username: state.username,
+        password: state.password
+      }
+      const result: Response<IUserInfo> = await loginService.login(loginVO);
+      if (result.code != 0) {
+        alert("登录失败");
+        return;
+      }
+      userModule.dispatchSetUser({
+        isLogin: true,
+        userInfo: result.data!
+      });
+      router.push("/");
     };
     const state = reactive({
       username: "",
@@ -75,7 +92,7 @@ export default defineComponent({
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;

@@ -15,14 +15,17 @@ export default [
     },
   },
   {
-    url: '/api/post',
+    url: '/api/login',
     method: 'post',
     timeout: 2000,
     response: {
       code: 0,
       data: {
         name: 'vben',
+        id: 10001,
+        token: 'alksdjiwqdnskdjalsdoiqwue21931312dahiiuq'
       },
+      msg: 'success'
     },
   },
   {

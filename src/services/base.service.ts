@@ -2,6 +2,7 @@
 import axios, {AxiosInstance, AxiosResponse, AxiosRequestConfig, Method} from "axios"
 import { ElLoading } from 'element-plus';
 import { nextTick } from "vue";
+import userLocalStorage from 'hooks/useLocalstorage';
 
 axios.defaults.timeout = 60000 ; // 设置全局请求超时时间
 axios.defaults.baseURL = import.meta.env.VITE_APP_BASEURL // 设置全局请求基地址
@@ -46,6 +47,10 @@ export default class BaseService {
     private addInterceptors(requestMain: AxiosInstance, loading: boolean): void {
         requestMain.interceptors.request.use(options => {
             // 对全局请求的options进行更改，例如增加动态头部信息等
+            const { getLocalStorage } = userLocalStorage();
+            if (getLocalStorage('Authorization')) {
+                options.headers.Authorization = getLocalStorage('Authorization');
+            }
             if(loading)
             {
                 loadingService = ElLoading.service({fullscreen: true,spinner: 'el-icon-loading', background: 'rgba(53, 54, 58, 0.7)'});

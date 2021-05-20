@@ -63,4 +63,7 @@ const imgLazyload = (oImages: HTMLCollection, containerEl: HTMLElement = documen
   }
 }
 
-export { debounce, deepClone, completeSongUrl, imgLazyload };
+const isExternal = (path: string) => {
+  return /^(https?:|mailto:|tel:)/.test(path)
+}
+export { debounce, deepClone, completeSongUrl, imgLazyload, isExternal };
