@@ -4,8 +4,8 @@
             class="sidebar-el-menu"
             :default-active="onRoutes"
             :collapse="collapse"
-            background-color="#324157"
-            text-color="#bfcbd9"
+            background-color="#ffffff"
+            text-color="black"
             active-text-color="#20a0ff"
             unique-opened
             router
@@ -113,7 +113,7 @@ export default defineComponent({
                     title: "schart图表"
                 },
                 {
-                    icon: "el-icon-lx-redpacket_fill",
+                    icon: "el-icon-s-flag",
                     index: "/donate",
                     title: "支持作者"
                 }

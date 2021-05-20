@@ -39,7 +39,6 @@ import { useRoute, useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
-
     const route = useRoute();
     const router = useRouter();
 
@@ -71,50 +70,49 @@ export default defineComponent({
     const closeAll = () => {
       tagsModule.dispatchClearTags();
       router.push("/");
-    }
+    };
 
     const closeOther = () => {
-       const curItem = tagsList.value.filter(item => {
-                return item.path === route.fullPath;
-            });
-          tagsModule.dispatchCloseTagsOther(curItem);
-    }
+      const curItem = tagsList.value.filter((item) => {
+        return item.path === route.fullPath;
+      });
+      tagsModule.dispatchCloseTagsOther(curItem);
+    };
 
     const setTags = (route: any) => {
-      const isExist = tagsList.value.some(item => {
-                return item.path === route.fullPath;
-            });
-             if (!isExist) {
-                if (tagsList.value.length >= 8) {
-                   tagsModule.dispatchDelTagsItem({index: 0});
-                }
-                tagsModule.dispatchSetTagsItem({
-                  name: route.name,
-                  title: route.meta.title,
-                  path: route.fullPath
-                })
-            }
+      const isExist = tagsList.value.some((item) => {
+        return item.path === route.fullPath;
+      });
+      if (!isExist) {
+        if (tagsList.value.length >= 8) {
+          tagsModule.dispatchDelTagsItem({ index: 0 });
+        }
+        tagsModule.dispatchSetTagsItem({
+          name: route.name,
+          title: route.meta.title,
+          path: route.fullPath,
+        });
+      }
     };
 
     const handleTags = (command: string) => {
       command === "other" ? closeOther() : closeAll();
-    }
+    };
 
     watch(route, (newValue) => {
-      console.log('------*************-----------'+ JSON.stringify(showTags.value) +JSON.stringify(newValue))
       setTags(newValue);
-    })
+    });
 
     return {
-        tagsList,
-        showTags,
-        isActive,
-        closeTags,
-        closeAll,
-        closeOther,
-        setTags,
-        handleTags
-    }
+      tagsList,
+      showTags,
+      isActive,
+      closeTags,
+      closeAll,
+      closeOther,
+      setTags,
+      handleTags,
+    };
   },
 });
 </script>

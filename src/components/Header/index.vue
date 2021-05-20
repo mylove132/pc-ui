@@ -5,7 +5,7 @@
             <i v-if="!collapse" class="el-icon-s-fold"></i>
             <i v-else class="el-icon-s-unfold"></i>
         </div>
-        <div class="logo">后台管理系统</div>
+        <div class="logo">PC工作台自动化平台</div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 消息中心 -->
@@ -23,7 +23,7 @@
                 </div>
                 <!-- 用户头像 -->
                 <div class="user-avator">
-                    <img src="https://raw.githubusercontent.com/lin-xin/vue-manage-system/master/src/assets/img/img.jpg" />
+                    <img src="../../assets/img/img.jpg" />
                 </div>
                 <!-- 用户名下拉菜单 -->
                 <el-dropdown class="user-name" trigger="click">
@@ -152,6 +152,7 @@ export default defineComponent({
 }
 .user-avator {
     margin-left: 20px;
+    margin-right: 10px;
 }
 .user-avator img {
     display: block;
