@@ -16,6 +16,7 @@
     "vue-cropperjs": "^5.0.0",
     "vue-router": "^4.0.4",
     "vue-schart": "^2.0.0",
+    "vue3-ace-editor": "^2.0.2",
     "vue3-router-tree": "^0.2.4",
     "vuex": "^4.0.0",
     "vuex-module-decorators": "^1.0.1"

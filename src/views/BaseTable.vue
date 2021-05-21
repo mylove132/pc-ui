@@ -110,7 +110,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted,getCurrentInstance, reactive, toRefs } from 'vue'
+import { defineComponent, onMounted, reactive, toRefs } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus';
 
 export default defineComponent({
     setup() {
@@ -139,10 +140,10 @@ export default defineComponent({
         }
 
         const handleDelete = (index: number) => {
-            getCurrentInstance()?.appContext.config.globalProperties.$confirm("确定要删除吗？", "提示", {
+            ElMessageBox.confirm("确定要删除吗？", "提示", {
                 type: "warning"
             }).then( () => {
-                getCurrentInstance()?.appContext.config.globalProperties.$message.success("删除成功");
+                ElMessage.success("删除成功");
                 state.tableData.splice(index, 1);
             }).catch( () => {
 
@@ -172,7 +173,7 @@ export default defineComponent({
 
         const saveEdit = () => {
             state.editVisible = false;
-            getCurrentInstance()?.appContext.config.globalProperties.$message(`修改第 ${state.idx + 1} 行成功`);
+            ElMessage.success(`修改第 ${state.idx + 1} 行成功`);
             state.tableData[state.idx] = state.form;
         }
 

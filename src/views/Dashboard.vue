@@ -1,14 +1,14 @@
 <template>
-    <CodeEdit></CodeEdit>
+    <CodeCard name="login" desc="登录"></CodeCard>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import CodeEdit from "@/components/CodeEdit/index.vue";
+import CodeCard from "@/components/CodeCard/index.vue";
 
 export default defineComponent({
     components: {
-        CodeEdit
+        CodeCard
     },
     setup() {
         
