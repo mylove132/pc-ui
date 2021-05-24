@@ -4,8 +4,8 @@
             class="sidebar-el-menu"
             :default-active="onRoutes"
             :collapse="collapse"
-            background-color="#ffffff"
-            text-color="black"
+            background-color=rgb(27,42,71)
+            text-color="#fff"
             active-text-color="#20a0ff"
             unique-opened
             router
@@ -154,5 +154,13 @@ export default defineComponent({
 }
 .sidebar > ul {
     height: 100%;
+}
+.el-submenu__title:hover{
+   background-color: rgb(33, 82, 179) !important; 
+
+}
+.el-menu-item:hover {
+  background-color: rgb(43, 82, 160) !important;
+
 }
 </style>
