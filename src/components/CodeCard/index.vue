@@ -65,6 +65,8 @@ import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-nord_dark";
 import { javaCode } from "@/api/data";
 import { jsonData } from "@/api/data";
+import { ScriptModule } from "@/store/modules/script.store";
+
 export default defineComponent({
   components: {
     VAceEditor,
@@ -87,7 +89,7 @@ export default defineComponent({
       default: JSON.stringify(jsonData, null, "\t"),
     },
   },
-  setup() {
+  setup(prop) {
     const state = reactive({
       isShowCodeDialog: false,
       role: "doctor",
@@ -110,10 +112,13 @@ export default defineComponent({
     const fullScreen = () => {
       state.isShowCodeDialog = true;
     };
-    const addRunScript = () => {};
+    const addRunScript = () => {
+      ScriptModule.dispatchSetScriptTagItem({name: prop.name});
+    };
 
     return {
       ...toRefs(state),
+      addRunScript,
       fullScreen,
     };
   },
